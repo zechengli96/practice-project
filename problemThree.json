@@ -1,0 +1,47 @@
+[
+    {
+      "id": 0,
+      "amount": 123.46,
+      "is_in_payment_plan": "yes",
+      "amount_to_pay": 102.5,
+      "debt_id": 0,
+      "installment_amount": 51.25,
+      "installment_frequency": "WEEKLY",
+      "start_date": "2020-09-28"
+    },
+    {
+      "id": 1,
+      "amount": 100,
+      "is_in_payment_plan": "yes",
+      "amount_to_pay": 100,
+      "debt_id": 1,
+      "installment_amount": 25,
+      "installment_frequency": "WEEKLY",
+      "start_date": "2020-08-01"
+    },
+    {
+      "id": 2,
+      "amount": 4920.34,
+      "is_in_payment_plan": "yes",
+      "amount_to_pay": 4920.34,
+      "debt_id": 2,
+      "installment_amount": 1230.085,
+      "installment_frequency": "BI_WEEKLY",
+      "start_date": "2020-01-01"
+    },
+    {
+      "id": 3,
+      "amount": 12938,
+      "is_in_payment_plan": "yes",
+      "amount_to_pay": 4312.67,
+      "debt_id": 3,
+      "installment_amount": 1230.085,
+      "installment_frequency": "WEEKLY",
+      "start_date": "2020-08-01"
+    },
+    {
+      "id": 4,
+      "amount": 9238.02,
+      "is_in_payment_plan": "no"
+    }
+  ]

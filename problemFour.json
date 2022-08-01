@@ -1,0 +1,29 @@
+[
+    {
+      "id": 0,
+      "amount": 102.5,
+      "amount_to_pay": 102.5,
+      "remaining": 0.0
+    },
+    {
+      "id": 1,
+      "amount": 50,
+      "amount_to_pay": 100,
+      "remaining": 50
+    },
+    {
+      "id": 2,
+      "amount": 4312.67,
+      "amount_to_pay": 4920.34,
+      "remaining": 607.6700000000001
+    },
+    {
+      "id": 3,
+      "amount": 3690.255,
+      "amount_to_pay": 4312.67,
+      "remaining": 622.415
+    },
+    {
+      "id": 4
+    }
+  ]
