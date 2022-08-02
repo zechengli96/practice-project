@@ -1,0 +1,112 @@
+[
+  {
+    "id": 6,
+    "amount": 3291.38,
+    "is_in_payment_plan": "yes",
+    "amount_to_pay": 3197.13,
+    "debt_id": 1,
+    "installment_amount": 126.55904514555236,
+    "installment_frequency": "BIWEEKLY",
+    "start_date": "2020-04-15"
+  },
+  {
+    "id": 4,
+    "amount": 2644.46,
+    "is_in_payment_plan": "yes",
+    "amount_to_pay": 3164.24,
+    "debt_id": 2,
+    "installment_amount": 187.15225562571706,
+    "installment_frequency": "WEEKLY",
+    "start_date": "2019-01-27"
+  },
+  {
+    "id": 7,
+    "amount": 1997.51,
+    "is_in_payment_plan": "yes",
+    "amount_to_pay": 1511.41,
+    "debt_id": 10,
+    "installment_amount": 353.869657068478,
+    "installment_frequency": "BIWEEKLY",
+    "start_date": "2016-04-19"
+  },
+  {
+    "id": 3,
+    "amount": 2060.52,
+    "is_in_payment_plan": "yes",
+    "amount_to_pay": 1050.02,
+    "debt_id": 10,
+    "installment_amount": 270.9370188626038,
+    "installment_frequency": "WEEKLY",
+    "start_date": "2016-02-05"
+  },
+  {
+    "id": 2,
+    "amount": 1906.89,
+    "is_in_payment_plan": "yes",
+    "amount_to_pay": 3373.93,
+    "debt_id": 9,
+    "installment_amount": 361.61751625220614,
+    "installment_frequency": "BIWEEKLY",
+    "start_date": "2017-04-01"
+  },
+  {
+    "id": 9,
+    "amount": 1727.17,
+    "is_in_payment_plan": "yes",
+    "amount_to_pay": 3268,
+    "debt_id": 10,
+    "installment_amount": 390.3499415558879,
+    "installment_frequency": "WEEKLY",
+    "start_date": "2018-11-13"
+  },
+  {
+    "id": 8,
+    "amount": 1586.68,
+    "is_in_payment_plan": "yes",
+    "amount_to_pay": 1093.92,
+    "debt_id": 2,
+    "installment_amount": 202.95659712713157,
+    "installment_frequency": "BIWEEKLY",
+    "start_date": "2021-07-17"
+  },
+  {
+    "id": 0,
+    "amount": 1566.54,
+    "is_in_payment_plan": "yes",
+    "amount_to_pay": 1515.97,
+    "debt_id": 6,
+    "installment_amount": 368.2193404382764,
+    "installment_frequency": "BIWEEKLY",
+    "start_date": "2020-04-05"
+  },
+  {
+    "id": 5,
+    "amount": 2341.49,
+    "is_in_payment_plan": "yes",
+    "amount_to_pay": 2097.09,
+    "debt_id": 4,
+    "installment_amount": 216.99281847926753,
+    "installment_frequency": "WEEKLY",
+    "start_date": "2022-07-17"
+  },
+  {
+    "id": 1,
+    "amount": 3438.06,
+    "is_in_payment_plan": "yes",
+    "amount_to_pay": 2338.2,
+    "debt_id": 7,
+    "installment_amount": 201.91126638786622,
+    "installment_frequency": "WEEKLY",
+    "start_date": "2017-02-08"
+  },
+  {
+    "id": 10,
+    "amount": 3806.54,
+    "is_in_payment_plan": "yes",
+    "amount_to_pay": 1451.68,
+    "debt_id": 8,
+    "installment_amount": 242.74718567524675,
+    "installment_frequency": "BIWEEKLY",
+    "start_date": "2015-06-28"
+  }
+]

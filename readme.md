@@ -1,170 +1,84 @@
-**Please direct all questions to your recruiter. An engineer will take a look at them and answer them.**
 
-## Problem Brief
+# Python Data Management Tool For TrueAccord
 
-At TrueAccord, we deal with customer debts in all of our products. The following problem will give you a database schema and API that outputs debts and payment plans. We expect you to think about the problem definitions, and try to solve them to the best of your ability.
+PDMT is a small program written in python to display and adjust the debt paying situation. 
 
-## Problems
+## Installation and Prerequisite
 
-Imagine that you are writing an internal admin tool. Please complete the following tasks. Use the database schema and API documentation as a reference.
+Basic knowledge of command line tool in Windows and Mac. 
 
-1.  Create a script that will consume data from the HTTP API endpoints described below and output debts to **stdout** in [JSON Lines format](https://jsonlines.org/). (NOTE: You are **not** expected to create your own server backend. Although the data is mocked, use the provided endpoints as though they serve real data.)
-    - Each line should contain:
-    - All the Debt object's fields returned by the API
-    - An additional boolean value, "*is_in_payment_plan*", which is: 
-      - true when the debt is associated with an active payment plan. 
-      - false when there is no payment plan, or the payment plan is completed.
-2. Provide a test suite that validates the output being produced, along with any other operations performed internally.
-    - This can be done using any testing technique, but it should provide reasonable coverage of functionality.
-3. Add a new field to the Debt objects in the output: "*remaining_amount*", containing the calculated amount remaining to be paid on the debt. Output the value as a JSON Number.
-    - If the debt is associated with a payment plan, subtract from the payment plan's *amount_to_pay* instead. In exchange for signing up for a payment plan, we will allow them to pay a reduced amount to satisfy the debt.
-    - All payments, whether on-time or not, contribute toward paying off a debt. 
-4. Add a new field to the Debt object output: "*next_payment_due_date*", containing the ISO 8601 UTC **date** (i.e. “2019-09-07”) of when the next payment is due or null if there is no payment plan or if the debt has been paid off.
-    - The *next_payment_due_date* can be calculated by using the payment plan *start_date* and *installment_frequency*. It should be the next installment date after the latest payment, even if this date is in the past.
-    - The *next_payment_due_date* should be null if there is no payment plan or if the debt has been paid off.
-    - Payments made on days outside the expected payment schedule still go toward paying off the *remaining_amount*, but do not change/delay the payment schedule.
-## Submitting Your Work
+Download and Install [python](https://www.python.org/downloads/) to install.
 
-Please email us the following once you are done:
+## Usage
 
-- A .zip or .tar.gz of your solution
-- A README.md file with the following information:
-  - **Clear, step-by-step instructions** on how to run your application.
-  - A high level overview of how you spent your time.
-  - A description of your process and approach, including what you think you would have done differently given more time.
-  - Some pointers on where to find the relevant logic in your code. 
-  - Any design decisions or assumptions you made. 
+```python
 
-We will have two engineers review it independently after you submit it. 
+# open up a command line and find a suitable place
+git clone https://github.com/zechengli96/practice-project.git 
 
-## Simple HTTP API Service
+# cd into the project
+(base) lizecheng@Lis-MacBook-Pro Desktop % cd practice-project
 
-This section details the three kinds of data objects and HTTP Service endpoints that provide access to them. Access each service endpoint using an **HTTP GET request**.
+# problem 1
 
-### Debts
+python problemOne.py
 
-A debt, which is money is owed to a collector.
+# problem 3
 
-* id (integer)
-* amount (real) - amount owed in USD
+python problemThree.py
 
-#### HTTP Service URL: https://my-json-server.typicode.com/druska/trueaccord-mock-payments-api/debts
+# problem 4
 
-#### Example HTTP JSON Response
+python problemFour.py
 
-```json
-[{
-  "id": 0,
-  "amount": 123.46
-}]
+# problem 2
+
+cd problemTwo 
+
+python test_problemOne.py
+
+python test_problemThree.py
+
+python test_problemFour.py
+
 ```
 
-### Payment Plans
+## Result Explanation
+1) Above is the step of running the program. 
+If I have more time, I would make it more readable, or make a front end website to display the process so the readme will be redundant. 
 
-A payment plan, which is an amount needed to resolve a debt, as well as the frequency of when it will be paid. Payment plans are associated with exactly one debt, and debts may not be associated with more than one payment plan.
+2) Detailed time usage:
+- *1* hours to read and structure the json data initially, and then during the coding, I spent about another *1* hour to think the ability to scale and testing method. 
+- *1.5* hours to code on problem 1,3,4. 
+- *1* hour to review the method I use, and what can I do better.
+- *1* hour to write the readme documentation. 
 
+Total time, *5.5* hours in a week.
 
-* id (integer)
-* debt_id (integer) - The associated debt.
-* amount_to_pay (real) - Total amount (in USD) needed to be paid to resolve this payment plan. 
-* installment_frequency (text) - The frequency of payments. Is one of: WEEKLY or BI_WEEKLY (14 days).
-* installment_amount (real) - The amount (in USD) of each payment installment.
-* start_date (string) - ISO 8601 date of when the first payment is due.
+3)  A description of your process and approach, including what you think you would have done differently given more time.
+- First, I use python to get the JSON file from URL provided, to save further time, I copied and pasted the file into json files in the folder. If I have more time or resource, I will make a website to display the json content and give user the right to click and play with it. And I reviewed all of the data from those URLs. Think these three json file as a database from TrueAccord's debt management system, we have debts, payment plans and payments. Which payment plans is like a middle point that connecting debts and payments. payment plans and debts using id as a foreign key and id for debts is primary key, debt_id is the foreign key to connect payment plans and payments ( which we assume one payment plan only have one debt_id),debt_id is also the primary key for payment plans and payments. And this as a whole could be actually a lot easier if is a database with these three tables, we can join all these together and create some new fields, and do some further operation with it. But because of the limitation on the format has to be easy to access by all the pals, I guess json is the best way to test candidates' ability.
 
-#### HTTP Service URL: https://my-json-server.typicode.com/druska/trueaccord-mock-payments-api/payment_plans
+- For the question 1, use the command I provide to show the result. Where if inside the payment_plans.json, if there is a id that is in both payment_plans.json and debts.json, then we will have a field called "is_in_payment_plan" and it is YES, otherwise it will be NO. 
 
-#### Example HTTP JSON Response Payload
+- For the question 2, I did not finish it perfectly. Here are the reasons:
+1）I think this question 2 should be question 4 or question 1, we either need to think about testing when we finish all or parallel 2) My first thought is use the random JSON generator to generate some random JSON, and then use those to replace the original file. But I find if I have to write to make sure the payments amount is close to debt amount, there are some extra functions I need to write, and I feel like there should be a good library to use, but I am lacking those knowledges. 3) If I'd have more time, I will put all of the data into a SQL db server, and then the whole process will be a lot easier, it will basic be a select statement with some joins. 4) Maybe use machine learning library to fake some testing data. 5) Testing data is not well prepared so it make the remaining amount to a negative amount.
 
-```json
-[{
-  "id": 0,
-  "debt_id": 0,
-  "amount_to_pay": 102.50,
-  "installment_frequency": "WEEKLY", 
-  "installment_amount": 51.25,
-  "start_date": "2020-09-28"
-}]
-```
+- For the question 3, use the command I provide to show the result. remaining will be the amount to pay minus sum of all of payments that is in the same debt_id. This part is a little bit tricky, but still a basic Leetcode question and data structure skill.
 
-### Payments
+- For the question 4, use the command I provide to show the result. next payment date will only show if there is a payment plan and the remaining is bigger than 0. And on the latest payment date, plus 7 if payment freq is weekly, 14 if bi-weekly.
 
-An individual payment installment which is made on a payment plan. Many-to-one with debts.
+Final thoughts:
+Overall this is a very good practice for back end engineer, it covers data structure basic, dict, language basic syntax, and programming mindset, testing method experience. 
 
-* payment_plan_id (integer)
-* amount (real)
-* date (string) - ISO 8601 date of when this payment occurred.
+If I have more time, I would build this into a web application, with the front end of 3 json file displaying, letting user to edit the json file themselves, problem 1, 3, 4 with button to click.
 
-#### HTTP Service URL: https://my-json-server.typicode.com/druska/trueaccord-mock-payments-api/payments
+For the problem 2, I strongly suggest using real world data, because if I'd write some function to fake the payments' sum equal to a debt, end of the day all of the data will show the same pattern, and those are not good data, unless your random is really close to nature random. For instance, you need to pay 1000 dollars, then you write a payment which is around 500 dollars and you want to pay them back in 2 times, you could write something like a+b = 1000, a is 500+-10, b is 500+-10. And all of the data will look alike. 
 
-#### Example HTTP JSON Response Payload
-
-```json
-[{
-  "payment_plan_id": 0,
-  "amount": 51.25,
-  "date": "2020-09-29"
-}]
-```
+And if I have more time, I will use database to store these data and just write the result out in a SQL query, and fetch the data into the front end.
 
 
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-- A .zip or .tar.gz of your solution
-- A README.md file with the following information:
-  - **Clear, step-by-step instructions** on how to run your application.
-  - A high level overview of how you spent your time.
-  - A description of your process and approach, including what you think you would have done differently given more time.
-  - Some pointers on where to find the relevant logic in your code. 
-  - Any design decisions or assumptions you made. 
-
-
-- Make sure you installed python on your machine, you can google how to do it. And make sure you have a terminal or a command line tool to run the program, for me, I used Visual Studio Code.
-
-- Unzip the folder, or if you use git just do https://github.com/zechengli96/practice-project.git
-
-1) Use Python to get the result from 3 URLs. To save some time, I downloaded them into json file and stored in the same folder. 
-2) In debts and payment_plans, there are ids that are matched. So we can merge debts and payment_plans together.
-3) In the result of 2), we will add another column, we will call it "is_in_payment_plan", if the debt_id is not None, then we will give that boolean as "Yes", otherwise give it "No".
-
-I also see "or the payment plan is completed", at this point, I think if the amount to pay is 0, then it should be No. The data set is not perfect enough, but I have to take this into consideration. 
-
-2. 
-Tend to get this resolved after other problems resolved.
-
-3. 
-Remaining amount will be the amount to payment minus the sum of payment that are having same debt_id.
-The reason the amount not equal to amount to pay is because signing up for payment plan allow them to pay a reduced amount.
-
-4. 
-The next payment due date will be calculated based on the latest payment date + frequency, as long as remaining balance is bigger than 0
-123
-If no "is_in_payment_plan", or no remaining balance, then null.
-
-Outside the schedule also count, and does not change anything.
+## License
+[MIT](https://choosealicense.com/licenses/mit/)
